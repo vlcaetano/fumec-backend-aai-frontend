@@ -1,11 +1,8 @@
-import DataTable from "components/DataTable";
+import Routes from 'Routes'
 
 function App() {
   return (
-    <div className="container">
-      <h1 className="text-primary">Hello</h1>
-      <DataTable />
-    </div>
+    <Routes />
   );
 }
 
