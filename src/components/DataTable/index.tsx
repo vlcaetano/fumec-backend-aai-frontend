@@ -14,7 +14,6 @@ function DataTable() {
     axios.get(`${BASE_URL}/customers`)
       .then(response => {
         setCustomerList(response.data)
-        console.log(response.data)
       })
       
   }, [requestData])

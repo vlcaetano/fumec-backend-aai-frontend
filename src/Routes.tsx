@@ -1,5 +1,6 @@
 import Home from "pages/Home"
 import Registration from "pages/Registration";
+import EditData from "pages/Edit"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 
 function Routes() {
@@ -16,7 +17,7 @@ function Routes() {
         </Route>
 
         <Route path="/editar/:id">
-          <Registration />
+          <EditData />
         </Route>
 
       </Switch>
