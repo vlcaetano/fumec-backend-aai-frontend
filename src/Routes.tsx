@@ -1,6 +1,7 @@
 import Home from "pages/Home"
 import Registration from "pages/Registration";
 import SaleRegistration from "pages/SaleRegistration";
+import SalesPage from "pages/Sales";
 import EditData from "pages/Edit";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -11,6 +12,10 @@ function Routes() {
 
         <Route path="/" exact>
           <Home />
+        </Route>
+
+        <Route path="/sales">
+          <SalesPage />
         </Route>
         
         <Route path="/registration/sales">
