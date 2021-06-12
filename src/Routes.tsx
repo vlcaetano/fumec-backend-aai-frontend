@@ -12,7 +12,7 @@ function Routes() {
           <Home />
         </Route>
 
-        <Route path="/cadastrar">
+        <Route path="/registration/:type?">
           <Registration />
         </Route>
 
