@@ -3,6 +3,8 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { BASE_URL } from 'utils/requests';
 
+import cpfValidation from "utils/cpfValidation";
+
 interface idParam {
   id?: number,
   type?: string
@@ -33,6 +35,13 @@ function EditData() {
       
   }, [id, type])
 
+  const [cpfError, setCpfError] = useState<string>('')
+  const [errorList, setErrorList] = useState<string>('')
+
+  useEffect(() => {
+    setErrorList(cpfError)
+  }, [cpfError])
+
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
   }
@@ -48,6 +57,13 @@ function EditData() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
+    if (cpfValidation(cpf)) {
+      setCpfError('')
+    } else {
+      setCpfError('CPF inválido')
+      return
+    }
+
     let customer = {name, email, cpf}
     await axios.put(`${BASE_URL}/customers/${id}`, customer)
 
@@ -56,20 +72,45 @@ function EditData() {
 
   return (
     <div className="container">
+      <h1 className="text-primary">Editar dados</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="mb-3">
           <label className="form-label">Nome</label>
-          <input type="text" className="form-control" id="name" onChange={e => handleNameChange(e)} value={name} />
+          <input 
+            type="text" 
+            className="form-control" 
+            id="name" 
+            onChange={e => handleNameChange(e)} 
+            value={name} 
+            required
+          />
         </div>
         <div className="mb-3">
           <label className="form-label">Email</label>
-          <input type="email" className="form-control" id="email" onChange={e => handleEmailChange(e)} value={email} />
+          <input 
+            type="email" 
+            className="form-control" 
+            id="email" 
+            onChange={e => handleEmailChange(e)} 
+            value={email} 
+            required
+          />
         </div>
         <div className="mb-3">
           <label className="form-label">CPF</label>
-          <input type="text" className="form-control" id="cpf" onChange={e => handleCpfChange(e)} value={cpf} />
+          <input 
+            type="text" 
+            className="form-control" 
+            id="cpf" 
+            onChange={e => handleCpfChange(e)} 
+            value={cpf} 
+            minLength={11} 
+            maxLength={11} 
+            required
+          />
         </div>
         <button className="btn btn-primary" >Cadastrar</button>
+        <span className="mt-2 d-block text-danger">{errorList}</span>
       </form>
     </div>
   );
