@@ -1,7 +1,8 @@
 import Home from "pages/Home"
 import Registration from "pages/Registration";
-import EditData from "pages/Edit"
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import SaleRegistration from "pages/SaleRegistration";
+import EditData from "pages/Edit";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function Routes() {
   return (
@@ -11,10 +12,15 @@ function Routes() {
         <Route path="/" exact>
           <Home />
         </Route>
+        
+        <Route path="/registration/sales">
+          <SaleRegistration />
+        </Route>
 
         <Route path="/registration/:type?">
           <Registration />
         </Route>
+
 
         <Route path="/edit/:type?/:id?">
           <EditData />

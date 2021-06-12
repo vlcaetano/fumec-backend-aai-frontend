@@ -18,7 +18,8 @@ function Home() {
       <br/><br/>
       <h1 className="text-primary mt-20">Vendas</h1>
       <SalesDataTable />
-      <Link className="btn btn-primary" to="/registration/sellers" > Cadastrar </Link>
+      <Link className="btn btn-primary" to="/registration/sales" > Cadastrar </Link>
+      <br/><br/>
     </div>
   );
 }
