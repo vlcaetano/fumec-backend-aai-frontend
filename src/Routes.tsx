@@ -6,12 +6,19 @@ function Routes() {
   return (
     <BrowserRouter>
       <Switch>
+
         <Route path="/" exact>
           <Home />
         </Route>
+
         <Route path="/cadastrar">
           <Registration />
         </Route>
+
+        <Route path="/editar/:id">
+          <Registration />
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );
