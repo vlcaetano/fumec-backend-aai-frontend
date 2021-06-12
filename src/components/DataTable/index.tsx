@@ -29,7 +29,7 @@ function DataTable({ type }: Props) {
 
   return (
     <div className="table-responsive">
-      <table className="table table-striped table-sm">
+      <table className="table table-striped table-sm text-center align-middle">
         <thead>
           <tr>
             <th>Id</th>

@@ -99,24 +99,24 @@ function Registration() {
 
   return (
       <div className="container">
-        <h1>Cadastro de Venda</h1>
+        <h1 className="text-primary">Cadastro de Venda</h1>
 
         <form onSubmit={(e) => handleSubmit(e)}>
-        <div className="mb-3">
-          <label className="form-label">Valor</label>
-          <input type="number" className="form-control" id="amount" onChange={e => handleAmountChange(e)} required />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Id vendedor</label>
-          <input type="number" className="form-control" id="idSeller" onChange={e => handleSellerIdChange(e)} required />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Id cliente</label>
-          <input type="number" className="form-control" id="idCustomer" onChange={e => handleCustomerIdChange(e)} required />
-        </div>
-        <button className="btn btn-primary" >Cadastrar</button>
-        {errorList.map((err) => <span className="mt-2 d-block text-danger" key={err.type}>{err.errorMsg}</span> )}
-      </form>
+          <div className="mb-3">
+            <label className="form-label">Valor</label>
+            <input type="number" className="form-control" id="amount" onChange={e => handleAmountChange(e)} required />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Id vendedor</label>
+            <input type="number" className="form-control" id="idSeller" onChange={e => handleSellerIdChange(e)} required />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Id cliente</label>
+            <input type="number" className="form-control" id="idCustomer" onChange={e => handleCustomerIdChange(e)} required />
+          </div>
+          <button className="btn btn-primary" >Cadastrar</button>
+          {errorList.map((err) => <span className="mt-2 d-block text-danger" key={err.type}>{err.errorMsg}</span> )}
+        </form>
       </div>
   );
 }

@@ -16,7 +16,7 @@ function Registration() {
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [cpf, setCpf] = useState<string>('')
-  
+
   const [cpfError, setCpfError] = useState<string>('')
   const [errorList, setErrorList] = useState<string>('')
 
@@ -54,42 +54,42 @@ function Registration() {
 
   return (
     <div className="container">
-    <h1>Cadastro</h1>
+    <h1 className="text-primary">Cadastro</h1>
 
       <form onSubmit={(e) => handleSubmit(e)}>
-      <div className="mb-3">
-        <label className="form-label">Nome</label>
-        <input 
-          type="text" 
-          className="form-control" 
-          id="name" onChange={e => handleNameChange(e)} 
-          required 
-        />
-      </div>
-      <div className="mb-3">
-        <label className="form-label">Email</label>
-        <input 
-          type="email" 
-          className="form-control" 
-          id="email" 
-          onChange={e => handleEmailChange(e)} 
-          required 
-        />
-      </div>
-      <div className="mb-3">
-        <label className="form-label">CPF (Somente números)</label>
-        <input 
-          type="text" 
-          className="form-control" 
-          id="cpf" onChange={e => handleCpfChange(e)} 
-          minLength={11} 
-          maxLength={11} 
-          required
-        />
-      </div>
-      <button className="btn btn-primary" >Cadastrar</button>
-      <span className="mt-2 d-block text-danger">{errorList}</span>
-    </form>
+        <div className="mb-3">
+          <label className="form-label">Nome</label>
+          <input 
+            type="text" 
+            className="form-control" 
+            id="name" onChange={e => handleNameChange(e)} 
+            required 
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Email</label>
+          <input 
+            type="email" 
+            className="form-control" 
+            id="email" 
+            onChange={e => handleEmailChange(e)} 
+            required 
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">CPF (Somente números)</label>
+          <input 
+            type="text" 
+            className="form-control" 
+            id="cpf" onChange={e => handleCpfChange(e)} 
+            minLength={11} 
+            maxLength={11} 
+            required
+          />
+        </div>
+        <button className="btn btn-primary" >Cadastrar</button>
+        <span className="mt-2 d-block text-danger">{errorList}</span>
+      </form>
     </div>
   );
 }
