@@ -11,13 +11,13 @@ type Props = {
 
 function DataTable({ type }: Props) {
 
-  const [customerList, setCustomerList] = useState<Person[]>([])
+  const [peopleList, setPeopleList] = useState<Person[]>([])
   const [requestData, setRequestData] = useState<Date>(new Date())
 
   useEffect(() => {
     axios.get(`${BASE_URL}/${type}`)
       .then(response => {
-        setCustomerList(response.data)
+        setPeopleList(response.data)
       })
       
   }, [requestData, type])
@@ -41,7 +41,7 @@ function DataTable({ type }: Props) {
           </tr>
         </thead>
         <tbody>
-          {customerList.map(item => (
+          {peopleList.map(item => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
