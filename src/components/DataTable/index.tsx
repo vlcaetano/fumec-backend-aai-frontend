@@ -5,21 +5,25 @@ import { Link } from "react-router-dom";
 import { Person } from "types/person";
 import { BASE_URL } from "utils/requests";
 
-function DataTable() {
+type Props = {
+  type: string
+}
+
+function DataTable({ type }: Props) {
 
   const [customerList, setCustomerList] = useState<Person[]>([])
   const [requestData, setRequestData] = useState<Date>(new Date())
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/customers`)
+    axios.get(`${BASE_URL}/${type}`)
       .then(response => {
         setCustomerList(response.data)
       })
       
-  }, [requestData])
+  }, [requestData, type])
 
   const handleDelete = (id: number) => {
-    axios.delete(`${BASE_URL}/customers/${id}`)
+    axios.delete(`${BASE_URL}/${type}/${id}`)
       .then(() => setRequestData(new Date()))
   }
 
@@ -54,7 +58,7 @@ function DataTable() {
               <td>
                 <Link 
                   className="btn btn-primary" 
-                  to={`/editar/${item.id}`}
+                  to={`edit/${type}/${item.id}`}
                 > 
                   Editar 
                 </Link>

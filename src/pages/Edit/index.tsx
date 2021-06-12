@@ -4,18 +4,18 @@ import { useHistory, useParams } from 'react-router-dom';
 import { BASE_URL } from 'utils/requests';
 
 interface idParam {
-  id?: number
+  id?: number,
+  type?: string
 }
 
-interface Customer {
+interface Person {
   name: string,
   email: string,
   cpf: string
 }
 
 function EditData() {
-
-  const { id } = useParams() as idParam
+  const { id, type } = useParams() as idParam
 
   const history = useHistory()
   const [name, setName] = useState<string>('')
@@ -23,15 +23,15 @@ function EditData() {
   const [cpf, setCpf] = useState<string>('')
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/customers/${id}`)
+    axios.get(`${BASE_URL}/${type}/${id}`)
       .then(response => {
-        let customer: Customer = response.data
-        setName(customer.name)
-        setEmail(customer.email)
-        setCpf(customer.cpf)
+        let personData: Person = response.data
+        setName(personData.name)
+        setEmail(personData.email)
+        setCpf(personData.cpf)
       })
       
-  }, [id])
+  }, [id, type])
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)

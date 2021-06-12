@@ -8,7 +8,7 @@ function Home() {
       <h1>Home</h1>
       <div className="container">
         <h1 className="text-primary">Hello</h1>
-        <DataTable />
+        <DataTable type="customers" />
         
         <Link className="btn btn-primary" to="/cadastrar" > Cadastrar </Link>
       </div>

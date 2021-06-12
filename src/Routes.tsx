@@ -16,7 +16,7 @@ function Routes() {
           <Registration />
         </Route>
 
-        <Route path="/editar/:id">
+        <Route path="/edit/:type?/:id?">
           <EditData />
         </Route>
 
