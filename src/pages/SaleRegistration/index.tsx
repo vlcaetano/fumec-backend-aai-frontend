@@ -94,7 +94,7 @@ function Registration() {
       }
     await axios.post(`${BASE_URL}/sales`, saleData)
 
-    history.push('/');
+    history.push('/sales');
   }
 
   return (
@@ -104,15 +104,35 @@ function Registration() {
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="mb-3">
             <label className="form-label">Valor</label>
-            <input type="number" className="form-control" id="amount" onChange={e => handleAmountChange(e)} required />
+            <input 
+              type="number" 
+              className="form-control" 
+              id="amount" 
+              onChange={e => handleAmountChange(e)} 
+              step={0.01} 
+              min={0} 
+              required 
+            />
           </div>
           <div className="mb-3">
             <label className="form-label">Id vendedor</label>
-            <input type="number" className="form-control" id="idSeller" onChange={e => handleSellerIdChange(e)} required />
+            <input 
+              type="number" 
+              className="form-control" 
+              id="idSeller" 
+              onChange={e => handleSellerIdChange(e)} 
+              required 
+            />
           </div>
           <div className="mb-3">
             <label className="form-label">Id cliente</label>
-            <input type="number" className="form-control" id="idCustomer" onChange={e => handleCustomerIdChange(e)} required />
+            <input 
+              type="number" 
+              className="form-control" 
+              id="idCustomer" 
+              onChange={e => handleCustomerIdChange(e)} 
+              required 
+            />
           </div>
           <button className="btn btn-primary" >Cadastrar</button>
           {errorList.map((err) => <span className="mt-2 d-block text-danger" key={err.type}>{err.errorMsg}</span> )}
